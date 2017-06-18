@@ -16,6 +16,7 @@ require 'active_record'
 require 'logger'
 
 require 'sinatra'
+require 'sinatra/cross_origin'
 require "sinatra/reloader" if development?
 
 require 'erb'
@@ -24,6 +25,24 @@ require 'erb'
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
+
+set :bind, '0.0.0.0'
+
+configure do
+  enable :cross_origin
+end
+
+before do
+  response.headers['Access-Control-Allow-Origin'] = '*'
+end
+
+# routes...
+options "*" do
+  response.headers["Allow"] = "GET, POST, OPTIONS"
+  response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
+  response.headers["Access-Control-Allow-Origin"] = "*"
+  200
+end
 
 configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.

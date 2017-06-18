@@ -37,4 +37,3 @@ delete "/profiles/:id" do
   profile.delete
   status 202
 end
-
