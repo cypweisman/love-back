@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'JSON'
 require 'profile'
+require 'pry'
 
 get "/profiles" do
   Profile.all.to_json
@@ -17,7 +18,7 @@ get "/profiles/new" do
   Profile.new
 end
 
-get "profiles/:id" do
+get "/profiles/:id" do
   profile = Profile.find(params[:id])
   return status 404 if profile.nil?
   profile.to_json
