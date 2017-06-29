@@ -8,7 +8,8 @@ get "/profiles" do
 end
 
 post "/profiles" do
-  profile = Profile.new(params[:profile])
+  user_info = JSON.parse(request.body.read)
+  profile = Profile.new(user_info)
   profile.save
   status 201
     #error handling to console, just puts?
