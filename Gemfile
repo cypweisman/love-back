@@ -11,6 +11,8 @@ gem 'sinatra-cross_origin'
 gem 'activesupport', '~>4.2.0'
 gem 'activerecord', '~>4.2.0'
 
+gem 'pry'
+
 gem 'rake'
 
 gem 'shotgun', '~>0.9.2'
