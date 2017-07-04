@@ -100,18 +100,11 @@ DEPENDENCIES
   rack-test
   rake
   rspec (~> 3.0)
-<<<<<<< HEAD
-  shotgun
-  shoulda-matchers
-  sinatra
-  sinatra-contrib
-=======
   shotgun (~> 0.9.2)
   shoulda-matchers
   sinatra
   sinatra-contrib
   sinatra-cross_origin
->>>>>>> eda155ccba7225db1869139883929ab3de3977cd
 
 BUNDLED WITH
    1.14.3
