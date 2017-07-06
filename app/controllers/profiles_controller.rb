@@ -8,6 +8,8 @@ get "/profiles" do
 end
 
 post "/profiles" do
+  #p "HHHHHHHHHHHH"
+  #binding.pry
   user_info = JSON.parse(request.body.read)
   profile = Profile.new(user_info)
   profile.save
@@ -26,9 +28,11 @@ get "/profiles/:id" do
 end
 
 put "/profiles/:id" do
+  #p '!!!!!!!!!!!!!!'
+  user_info = JSON.parse(request.body.read)
   profile = Profile.find(params[:id])
   return status 404 if profile.nil?
-  profile.update(params[:profile])
+  profile.update(user_info)
   profile.save
   status 202
 end
