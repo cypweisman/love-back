@@ -40,8 +40,9 @@ end
 
 # routes...
 options "*" do
-  response.headers["Access-Control-Allow-Methods"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
+  response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
   response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+  #Dont need 44...i think because we have 36
   response.headers["Access-Control-Allow-Origin"] = "*"
   200
 end
