@@ -8,13 +8,11 @@ get "/profiles" do
 end
 
 post "/profiles" do
-  #p "HHHHHHHHHHHH"
-  #binding.pry
   user_info = JSON.parse(request.body.read)
   profile = Profile.new(user_info)
   profile.save
   status 201
-    #error handling to console, just puts?
+  profile.to_json
 end
 
 get "/profiles/new" do
@@ -28,7 +26,6 @@ get "/profiles/:id" do
 end
 
 put "/profiles/:id" do
-  #p '!!!!!!!!!!!!!!'
   user_info = JSON.parse(request.body.read)
   profile = Profile.find(params[:id])
   return status 404 if profile.nil?
